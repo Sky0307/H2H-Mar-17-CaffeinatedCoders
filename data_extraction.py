@@ -25,7 +25,12 @@ class DataExtraction():
                 business_partner = row[0].value
                 product = row[1].value
                 amount = row[2].value
-                product_list.append([business_partner, product, amount])
+                information_dict = {
+                    "company": business_partner,
+                    "product": product,
+                    "quantity": amount
+                }
+                product_list.append(information_dict)
                 print(f"{business_partner} requested for Product {product} of amount {amount}.")
                 print(product_list)
 

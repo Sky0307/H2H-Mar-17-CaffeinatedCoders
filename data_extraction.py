@@ -35,6 +35,6 @@ class DataExtraction():
                 print(product_list)
 
 #os independent file path
-data_file = os.path.join("..", "mockup_data.xlsx")
+data_file = os.path.join(".", "mockup_data.xlsx")
 test = DataExtraction()
 test.extract_data_from_excel(data_file)

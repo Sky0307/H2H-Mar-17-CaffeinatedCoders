@@ -7,7 +7,7 @@ import datetime
 import random
 from turtle import bgcolor
 
-emailItemList = [{"id":"1","title":"Request of hahah","sender":"ABC","datetime":"2021-09-08 11:12:20"},{"id":"2","title":"Request of ABC","sender":"ABC","datetime":"2021-09-08 11:12:20"},]
+emailItemList = [{"id":1,"title":"Request of hahah","sender":"ABC","datetime":"2021-09-08 11:12:20"},{"id":2,"title":"Request of ABC","sender":"ABC","datetime":"2021-09-08 11:12:20"},]
 extractList = []
 
 def sendExtractionList():

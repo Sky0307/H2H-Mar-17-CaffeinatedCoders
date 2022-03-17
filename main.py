@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import os
-from frames.mainpage import mainPage
+from frontend.frames.mainpage import mainPage
 
 dir_path = os.path.dirname(os.path.realpath(__file__)) # Get the current file location
 os.chdir(dir_path)  # Change current working directory
@@ -20,7 +20,7 @@ class Main (tk.Tk):
         self.resizable(False, False)
         self.grid()
 
-        self.tk.call("source", "./Azure-ttk-theme-main/azure.tcl")
+        self.tk.call("source", "./frontend/Azure-ttk-theme-main/azure.tcl")
 
         # Then set the theme you want with the set_theme procedure
         self.tk.call("set_theme", "light")
@@ -30,7 +30,15 @@ class Main (tk.Tk):
         a.pack(fill='both')
 
 
+
 # Call Main window and loop it
 n = Main()
+
+def update():
+        n.after(1000, update) # run itself again after 1000 ms
+
+    # run first time
+update()
+
 n.mainloop()
 

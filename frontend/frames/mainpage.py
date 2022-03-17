@@ -1,8 +1,8 @@
 from tkinter import BOTH, Tk,ttk
 import tkinter as tk
-from frames.mailbox import mailBox
-from frames.datavalidation import dataValidation
-from frames.progress import status
+from frontend.frames.mailbox import mailBox
+from frontend.frames.datavalidation import dataValidation
+from frontend.frames.progress import status
 
 class mainPage(tk.Frame):
     def __init__(self, parent) -> None:

@@ -1,10 +1,6 @@
-
 import psycopg2
 
 class db:
-    def test():
-        print("hello")
-
     def create_tables():
         """ create tables in the PostgreSQL database"""
         commands = (

@@ -30,16 +30,19 @@ class DataExtraction():
                 business_partner = row[1].value
                 product = row[2].value
                 amount = row[3].value
-                information_dict = {
-                    "id": _id,
-                    "company": business_partner,
-                    "product": product,
-                    "quantity": amount
-                }
+                if _id != None:
+                    information_dict = {
+                        "id": _id,
+                        "company": business_partner,
+                        "product": product,
+                        "quantity": amount
+                    }
+                else:
+                    break
                 product_list.append(information_dict)
         return product_list
 
 #os independent file path
 data_file = os.path.join(".", "mockup_data.xlsx")
 test = DataExtraction()
-# print(test.extract_data_from_excel(data_file))
+print(test.extract_data_from_excel(data_file))

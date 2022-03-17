@@ -2,6 +2,8 @@
 import psycopg2
 
 class db:
+    def test():
+        print("hello")
 
     def create_tables():
         """ create tables in the PostgreSQL database"""
@@ -111,5 +113,5 @@ class db:
 
 
 #db.create_tables()
-db.insert_proddata('item4','222')
+# db.insert_proddata('item4','222')
 #update_prodquantity('item1','50')

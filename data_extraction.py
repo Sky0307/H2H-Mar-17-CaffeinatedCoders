@@ -1,4 +1,5 @@
 from openpyxl import load_workbook
+import mail
 import os
 
 class DataExtraction():
@@ -6,6 +7,9 @@ class DataExtraction():
         pass
 
     def extract_data_from_excel(self, excel_file = "./mockup_data.xlsx"):
+        # download the file from gmail:
+        mail.download_file()
+
         # Load the entire workbook.
         data_excel = load_workbook(excel_file)
 

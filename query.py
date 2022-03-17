@@ -31,6 +31,7 @@ class db:
                 prod_id SERIAL PRIMARY KEY,
                 prod_name VARCHAR(255) NOT NULL,
                 quantity INTEGER NOT NULL,
+                company VARCHAR(255),
                 bp_id INTEGER,
                 FOREIGN KEY (bp_id)
                     REFERENCES business_partner (bp_id)
@@ -58,13 +59,17 @@ class db:
                 conn.close()
 
     #product table CRUD
-    def insert_proddata(prodname,quantity):
+    def insert_proddata(prodname,quantity,company):
         conn = None
         conn = psycopg2.connect(database="H2H", user = "postgres", password="admin123", host="localhost")
-        commands="""INSERT INTO products (prod_name, quantity) VALUES (%s, %s)"""
-        insert_value=(prodname,quantity)
+        command="""SELECT bp_id FROM business_partner WHERE company = %s"""
+        cur=conn.cursor()
+        cur.execute(command,(company,))
+        bpid=cur.fetchone()
+        commands="""INSERT INTO products (prod_name, quantity,bp_id) VALUES (%s, %s, %s)"""
+        insert_value=(prodname,quantity,bpid)
+        
         try:
-            cur = conn.cursor()
             #for command in commands:
             cur.execute(commands,insert_value)
             cur.close()
@@ -258,7 +263,7 @@ class db:
             if conn is not None:
                 conn.close()
 
-    def read_proddata():
+    def read_bpdata():
         conn = None
         conn = psycopg2.connect(database="H2H", user = "postgres", password="admin123", host="localhost")
         commands="""SELECT * FROM business_partner"""
@@ -278,7 +283,7 @@ class db:
                 conn.close()
         return records
 
-    def delete_proddata(bp_name):
+    def delete_bpdata(bp_name):
         conn = None
         conn = psycopg2.connect(database="H2H", user = "postgres", password="admin123", host="localhost")
         commands="""DELETE from business_partner WHERE bp_name = %s"""
@@ -299,10 +304,10 @@ class db:
 
 
 #db.create_tables()
-#db.insert_proddata('item4','222')
+#db.insert_proddata('item4','123','companyA')
 #update_prodquantity('item1','50')
 
 #for records in db.read_proddata():
 #    print(records)
-
+#db.insert_bpdata('ali','1@b.com','companyA')
 ## to import class db use: query.db.function()

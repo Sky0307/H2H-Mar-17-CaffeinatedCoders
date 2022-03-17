@@ -8,7 +8,8 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS products (
             prod_id SERIAL PRIMARY KEY,
             prod_name VARCHAR(255) NOT NULL,
-            quantity integer NOT NULL,
+            quantity INTEGER NOT NULL,
+            bp_id INTEGER,
             FOREIGN KEY (bp_id)
                 REFERENCES business_partner (bp_id)
                 ON UPDATE CASCADE ON DELETE CASCADE
@@ -103,6 +104,6 @@ def read_proddata(prodname,quantity):
         if conn is not None:
             conn.close()
 
-#create_tables()
+create_tables()
 #insert_proddata()
 #update_prodquantity('item1','50')

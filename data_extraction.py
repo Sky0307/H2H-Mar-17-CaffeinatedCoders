@@ -42,4 +42,4 @@ class DataExtraction():
 #os independent file path
 data_file = os.path.join(".", "mockup_data.xlsx")
 test = DataExtraction()
-print(test.extract_data_from_excel(data_file))
+# print(test.extract_data_from_excel(data_file))

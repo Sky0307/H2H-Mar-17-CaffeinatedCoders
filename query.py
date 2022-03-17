@@ -1,4 +1,5 @@
 
+from asyncio.windows_events import NULL
 import psycopg2
 
 class db:
@@ -90,26 +91,33 @@ class db:
             if conn is not None:
                 conn.close()
 
-    def read_proddata(prodname,quantity):
+    def read_proddata():
         conn = None
         conn = psycopg2.connect(database="H2H", user = "postgres", password="admin123", host="localhost")
         commands="""SELECT * FROM products"""
+        records=NULL
         try:
             cur = conn.cursor()
             #for command in commands:
             cur.execute(commands)
+            
+            records = cur.fetchall()
             cur.close()
             conn.commit()
-            print("Row Updated")
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
         finally:
             if conn is not None:
                 conn.close()
-        
-        return 
+        return records
+
 
 
 #db.create_tables()
-db.insert_proddata('item4','222')
+#db.insert_proddata('item4','222')
 #update_prodquantity('item1','50')
+
+for records in db.read_proddata():
+    print(records)
+
+## to import class db use: query.db.function()

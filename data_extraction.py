@@ -31,7 +31,7 @@ class DataExtraction():
                     "quantity": amount
                 }
                 product_list.append(information_dict)
-                print(f"{business_partner} requested for Product {product} of amount {amount}.")
+                # print(f"{business_partner} requested for Product {product} of amount {amount}.")
                 print(product_list)
 
 #os independent file path

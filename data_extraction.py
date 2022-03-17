@@ -5,9 +5,9 @@ class DataExtraction():
     def __init__(self, *args):
         pass
 
-    def extract_data_from_excel(self, excel_file):
+    def extract_data_from_excel(self, excel_file = "./mockup_data.xlsx"):
         # Load the entire workbook.
-        data_excel = load_workbook(data_file)
+        data_excel = load_workbook(excel_file)
 
         # List all the sheets in the file.
         print("Found the following worksheets:")
@@ -31,8 +31,7 @@ class DataExtraction():
                     "quantity": amount
                 }
                 product_list.append(information_dict)
-                # print(f"{business_partner} requested for Product {product} of amount {amount}.")
-                print(product_list)
+        return product_list
 
 #os independent file path
 data_file = os.path.join(".", "mockup_data.xlsx")

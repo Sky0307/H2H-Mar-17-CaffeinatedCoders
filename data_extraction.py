@@ -22,10 +22,12 @@ class DataExtraction():
             
             product_list = []
             for row in all_rows[1:row_nums]:
-                business_partner = row[0].value
-                product = row[1].value
-                amount = row[2].value
+                _id = row[0].value
+                business_partner = row[1].value
+                product = row[2].value
+                amount = row[3].value
                 information_dict = {
+                    "id": _id,
                     "company": business_partner,
                     "product": product,
                     "quantity": amount
@@ -36,4 +38,4 @@ class DataExtraction():
 #os independent file path
 data_file = os.path.join(".", "mockup_data.xlsx")
 test = DataExtraction()
-test.extract_data_from_excel(data_file)
+print(test.extract_data_from_excel(data_file))

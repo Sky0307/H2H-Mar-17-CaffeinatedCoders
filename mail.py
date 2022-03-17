@@ -1,5 +1,4 @@
 import imaplib
-import base64
 import os
 import email
 
@@ -37,7 +36,6 @@ for num in data[0].split():
                 fp = open(filePath, 'wb')
                 fp.write(part.get_payload(decode=True))
                 fp.close()
-            subject = str(email_message).split(
-                "Subject: ", 1)[1].split("\nTo:", 1)[0]
+            subject = str(email_message).split("Subject: ", 1)[1].split("\nTo:", 1)[0]
             print('Downloaded "{file}" from email titled "{subject}".'.format(
                 file=fileName, subject=subject))

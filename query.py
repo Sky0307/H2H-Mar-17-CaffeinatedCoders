@@ -1,11 +1,6 @@
-
-from asyncio.windows_events import NULL
 import psycopg2
 
 class db:
-    def test():
-        print("hello")
-
     def create_tables():
         """ create tables in the PostgreSQL database"""
         commands = (
@@ -112,14 +107,3 @@ class db:
             if conn is not None:
                 conn.close()
         return records
-
-
-
-#db.create_tables()
-#db.insert_proddata('item4','222')
-#update_prodquantity('item1','50')
-
-#for records in db.read_proddata():
-#    print(records)
-
-## to import class db use: query.db.function()

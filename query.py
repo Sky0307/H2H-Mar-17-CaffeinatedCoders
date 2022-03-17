@@ -3,6 +3,8 @@ from asyncio.windows_events import NULL
 import psycopg2
 
 class db:
+    def test():
+        print("hello")
 
     def create_tables():
         """ create tables in the PostgreSQL database"""
